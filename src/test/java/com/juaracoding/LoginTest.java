@@ -1,5 +1,6 @@
 package com.juaracoding;
 
+import com.juaracoding.login.Login;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -30,8 +31,16 @@ public class LoginTest {
         Assert.assertEquals(actual,expected);
     }
 
-    @Test
+    @Test(priority = 3)
     public void testShowLogo(){
         Assert.assertTrue(login.showLogo("C:\\Picture\\image.png"));
+    }
+
+    @Test(priority = 4)
+    public void testForgotPassword(){
+        String actual = login.forgotPassword("admin","654321","654321","654321");
+        String expected = "Password berhasil diubah";
+
+        Assert.assertEquals(actual,expected);
     }
 }
